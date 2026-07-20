@@ -24,7 +24,7 @@ while True:
     print("Health of your character is: ", health,"❤️")
     print("-"*90)
     print("The Boss has appeared!".center(90))
-    print(f"Boss Health: {boss_health}".center(90))
+    print(f"Superman's Health: {boss_health}".center(90))
     print("-"*90)
     while health>0 and boss_health>0:
         option=["Attack","Heal","your status","Run"]
@@ -36,20 +36,31 @@ while True:
             boss_health-=52
             print("You attacked the Superman!")
             print("damage dealt: 52")
-            print(f"Superman's HP: {boss_health}")
+            if boss_health<=0:
+                print("You have defeated the boss!")
+            else:
+                print(f"Superman's HP: {boss_health}")
             print()
             if boss_health<=0:
                 break
             print("superman attacks you!")
             health-=18
-            print(f"your health: {health}")
+            if health<=0:
+                print("You have been defeated by the boss!")
+            else:
+                print(f"your health: {health}")
             print("-"*90)
-            print(f"Boss Health: {boss_health}".center(90))
+            if health<=0:
+                print("Superman is dead and you have won the battle!".center(90))
+            else:
+                print(f"Superman's Health: {boss_health}".center(90))
             print("-"*90)
         elif move=="2":
             if health>=200:
                 print("You are already at full health!")
-                print(f"your health: {health}")
+                print("superman attacks you!")
+                health-=10
+                print(f"your health is now: {health}")
                 print("-"*90)
             else:
                 health+=50
@@ -106,8 +117,3 @@ while True:
         print("You are a true hero!")
         print("Thank you for playing the game!")
     break
-    
-    
-
-
-
